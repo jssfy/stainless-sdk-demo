@@ -1,5 +1,5 @@
 [project]
-name = "python_demo"
+name = "python_demo_yeah"
 version = "0.0.1"
 description = "The official Python library for the python-demo API"
 dynamic = ["readme"]

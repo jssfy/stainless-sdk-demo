@@ -1,7 +1,7 @@
 # Python Demo Python API library
 
 <!-- prettier-ignore -->
-[![PyPI version](https://img.shields.io/pypi/v/python_demo.svg?label=pypi%20(stable))](https://pypi.org/project/python_demo/)
+[![PyPI version](https://img.shields.io/pypi/v/python_demo_yeah.svg?label=pypi%20(stable))](https://pypi.org/project/python_demo_yeah/)
 
 The Python Demo Python library provides convenient access to the Python Demo REST API from any Python 3.9+
 application. The library includes type definitions for all request params and response fields,
@@ -16,12 +16,9 @@ The full API of this library can be found in [api.md](api.md).
 ## Installation
 
 ```sh
-# install from the production repo
-pip install git+ssh://git@github.com/jssfy/stainless-sdk-demo.git
+# install from PyPI
+pip install python_demo_yeah
 ```
-
-> [!NOTE]
-> Once this package is [published to PyPI](https://www.stainless.com/docs/guides/publish), this will become: `pip install python_demo`
 
 ## Usage
 
@@ -75,8 +72,8 @@ By default, the async client uses `httpx` for HTTP requests. However, for improv
 You can enable this by installing `aiohttp`:
 
 ```sh
-# install from the production repo
-pip install 'python_demo[aiohttp] @ git+ssh://git@github.com/jssfy/stainless-sdk-demo.git'
+# install from PyPI
+pip install python_demo_yeah[aiohttp]
 ```
 
 Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
