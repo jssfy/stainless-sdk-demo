@@ -12,7 +12,6 @@ from . import _exceptions
 from ._qs import Querystring
 from ._types import (
     Omit,
-    Headers,
     Timeout,
     NotGiven,
     Transport,
@@ -32,10 +31,8 @@ from ._base_client import (
 )
 
 if TYPE_CHECKING:
-    from .resources import users, orders, products
-    from .resources.users import UsersResource, AsyncUsersResource
-    from .resources.orders import OrdersResource, AsyncOrdersResource
-    from .resources.products import ProductsResource, AsyncProductsResource
+    from .resources import v1
+    from .resources.v1.v1 import V1Resource, AsyncV1Resource
 
 __all__ = [
     "ENVIRONMENTS",
@@ -131,22 +128,10 @@ class PythonDemo(SyncAPIClient):
         )
 
     @cached_property
-    def users(self) -> UsersResource:
-        from .resources.users import UsersResource
+    def v1(self) -> V1Resource:
+        from .resources.v1 import V1Resource
 
-        return UsersResource(self)
-
-    @cached_property
-    def products(self) -> ProductsResource:
-        from .resources.products import ProductsResource
-
-        return ProductsResource(self)
-
-    @cached_property
-    def orders(self) -> OrdersResource:
-        from .resources.orders import OrdersResource
-
-        return OrdersResource(self)
+        return V1Resource(self)
 
     @cached_property
     def with_raw_response(self) -> PythonDemoWithRawResponse:
@@ -163,29 +148,12 @@ class PythonDemo(SyncAPIClient):
 
     @property
     @override
-    def auth_headers(self) -> dict[str, str]:
-        api_key = self.api_key
-        if api_key is None:
-            return {}
-        return {"X-API-Key": api_key}
-
-    @property
-    @override
     def default_headers(self) -> dict[str, str | Omit]:
         return {
             **super().default_headers,
             "X-Stainless-Async": "false",
             **self._custom_headers,
         }
-
-    @override
-    def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
-        if headers.get("X-API-Key") or isinstance(custom_headers.get("X-API-Key"), Omit):
-            return
-
-        raise TypeError(
-            '"Could not resolve authentication method. Expected the api_key to be set. Or for the `X-API-Key` headers to be explicitly omitted"'
-        )
 
     def copy(
         self,
@@ -350,22 +318,10 @@ class AsyncPythonDemo(AsyncAPIClient):
         )
 
     @cached_property
-    def users(self) -> AsyncUsersResource:
-        from .resources.users import AsyncUsersResource
+    def v1(self) -> AsyncV1Resource:
+        from .resources.v1 import AsyncV1Resource
 
-        return AsyncUsersResource(self)
-
-    @cached_property
-    def products(self) -> AsyncProductsResource:
-        from .resources.products import AsyncProductsResource
-
-        return AsyncProductsResource(self)
-
-    @cached_property
-    def orders(self) -> AsyncOrdersResource:
-        from .resources.orders import AsyncOrdersResource
-
-        return AsyncOrdersResource(self)
+        return AsyncV1Resource(self)
 
     @cached_property
     def with_raw_response(self) -> AsyncPythonDemoWithRawResponse:
@@ -382,29 +338,12 @@ class AsyncPythonDemo(AsyncAPIClient):
 
     @property
     @override
-    def auth_headers(self) -> dict[str, str]:
-        api_key = self.api_key
-        if api_key is None:
-            return {}
-        return {"X-API-Key": api_key}
-
-    @property
-    @override
     def default_headers(self) -> dict[str, str | Omit]:
         return {
             **super().default_headers,
             "X-Stainless-Async": f"async:{get_async_library()}",
             **self._custom_headers,
         }
-
-    @override
-    def _validate_headers(self, headers: Headers, custom_headers: Headers) -> None:
-        if headers.get("X-API-Key") or isinstance(custom_headers.get("X-API-Key"), Omit):
-            return
-
-        raise TypeError(
-            '"Could not resolve authentication method. Expected the api_key to be set. Or for the `X-API-Key` headers to be explicitly omitted"'
-        )
 
     def copy(
         self,
@@ -500,22 +439,10 @@ class PythonDemoWithRawResponse:
         self._client = client
 
     @cached_property
-    def users(self) -> users.UsersResourceWithRawResponse:
-        from .resources.users import UsersResourceWithRawResponse
+    def v1(self) -> v1.V1ResourceWithRawResponse:
+        from .resources.v1 import V1ResourceWithRawResponse
 
-        return UsersResourceWithRawResponse(self._client.users)
-
-    @cached_property
-    def products(self) -> products.ProductsResourceWithRawResponse:
-        from .resources.products import ProductsResourceWithRawResponse
-
-        return ProductsResourceWithRawResponse(self._client.products)
-
-    @cached_property
-    def orders(self) -> orders.OrdersResourceWithRawResponse:
-        from .resources.orders import OrdersResourceWithRawResponse
-
-        return OrdersResourceWithRawResponse(self._client.orders)
+        return V1ResourceWithRawResponse(self._client.v1)
 
 
 class AsyncPythonDemoWithRawResponse:
@@ -525,22 +452,10 @@ class AsyncPythonDemoWithRawResponse:
         self._client = client
 
     @cached_property
-    def users(self) -> users.AsyncUsersResourceWithRawResponse:
-        from .resources.users import AsyncUsersResourceWithRawResponse
+    def v1(self) -> v1.AsyncV1ResourceWithRawResponse:
+        from .resources.v1 import AsyncV1ResourceWithRawResponse
 
-        return AsyncUsersResourceWithRawResponse(self._client.users)
-
-    @cached_property
-    def products(self) -> products.AsyncProductsResourceWithRawResponse:
-        from .resources.products import AsyncProductsResourceWithRawResponse
-
-        return AsyncProductsResourceWithRawResponse(self._client.products)
-
-    @cached_property
-    def orders(self) -> orders.AsyncOrdersResourceWithRawResponse:
-        from .resources.orders import AsyncOrdersResourceWithRawResponse
-
-        return AsyncOrdersResourceWithRawResponse(self._client.orders)
+        return AsyncV1ResourceWithRawResponse(self._client.v1)
 
 
 class PythonDemoWithStreamedResponse:
@@ -550,22 +465,10 @@ class PythonDemoWithStreamedResponse:
         self._client = client
 
     @cached_property
-    def users(self) -> users.UsersResourceWithStreamingResponse:
-        from .resources.users import UsersResourceWithStreamingResponse
+    def v1(self) -> v1.V1ResourceWithStreamingResponse:
+        from .resources.v1 import V1ResourceWithStreamingResponse
 
-        return UsersResourceWithStreamingResponse(self._client.users)
-
-    @cached_property
-    def products(self) -> products.ProductsResourceWithStreamingResponse:
-        from .resources.products import ProductsResourceWithStreamingResponse
-
-        return ProductsResourceWithStreamingResponse(self._client.products)
-
-    @cached_property
-    def orders(self) -> orders.OrdersResourceWithStreamingResponse:
-        from .resources.orders import OrdersResourceWithStreamingResponse
-
-        return OrdersResourceWithStreamingResponse(self._client.orders)
+        return V1ResourceWithStreamingResponse(self._client.v1)
 
 
 class AsyncPythonDemoWithStreamedResponse:
@@ -575,22 +478,10 @@ class AsyncPythonDemoWithStreamedResponse:
         self._client = client
 
     @cached_property
-    def users(self) -> users.AsyncUsersResourceWithStreamingResponse:
-        from .resources.users import AsyncUsersResourceWithStreamingResponse
+    def v1(self) -> v1.AsyncV1ResourceWithStreamingResponse:
+        from .resources.v1 import AsyncV1ResourceWithStreamingResponse
 
-        return AsyncUsersResourceWithStreamingResponse(self._client.users)
-
-    @cached_property
-    def products(self) -> products.AsyncProductsResourceWithStreamingResponse:
-        from .resources.products import AsyncProductsResourceWithStreamingResponse
-
-        return AsyncProductsResourceWithStreamingResponse(self._client.products)
-
-    @cached_property
-    def orders(self) -> orders.AsyncOrdersResourceWithStreamingResponse:
-        from .resources.orders import AsyncOrdersResourceWithStreamingResponse
-
-        return AsyncOrdersResourceWithStreamingResponse(self._client.orders)
+        return AsyncV1ResourceWithStreamingResponse(self._client.v1)
 
 
 Client = PythonDemo
