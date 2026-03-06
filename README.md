@@ -32,14 +32,14 @@ client = PythonDemo(
     environment="environment_1",
 )
 
-users = client.users.list()
-print(users.data)
+memory = client.v1.memories.create(
+    content="Let's discuss the technical solution for the new feature today",
+    create_time="2025-01-15T10:00:00+00:00",
+    message_id="msg_001",
+    sender="user_001",
+)
+print(memory.message)
 ```
-
-While you can provide an `api_key` keyword argument,
-we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
-to add `PYTHON_DEMO_API_KEY="My API Key"` to your `.env` file
-so that your API Key is not stored in source control.
 
 ## Async usage
 
@@ -56,8 +56,13 @@ client = AsyncPythonDemo(
 
 
 async def main() -> None:
-    users = await client.users.list()
-    print(users.data)
+    memory = await client.v1.memories.create(
+        content="Let's discuss the technical solution for the new feature today",
+        create_time="2025-01-15T10:00:00+00:00",
+        message_id="msg_001",
+        sender="user_001",
+    )
+    print(memory.message)
 
 
 asyncio.run(main())
@@ -88,8 +93,13 @@ async def main() -> None:
     async with AsyncPythonDemo(
         http_client=DefaultAioHttpClient(),
     ) as client:
-        users = await client.users.list()
-        print(users.data)
+        memory = await client.v1.memories.create(
+            content="Let's discuss the technical solution for the new feature today",
+            create_time="2025-01-15T10:00:00+00:00",
+            message_id="msg_001",
+            sender="user_001",
+        )
+        print(memory.message)
 
 
 asyncio.run(main())
@@ -120,7 +130,12 @@ from python_demo import PythonDemo
 client = PythonDemo()
 
 try:
-    client.users.list()
+    client.v1.memories.create(
+        content="Let's discuss the technical solution for the new feature today",
+        create_time="2025-01-15T10:00:00+00:00",
+        message_id="msg_001",
+        sender="user_001",
+    )
 except python_demo.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
@@ -163,7 +178,12 @@ client = PythonDemo(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).users.list()
+client.with_options(max_retries=5).v1.memories.create(
+    content="Let's discuss the technical solution for the new feature today",
+    create_time="2025-01-15T10:00:00+00:00",
+    message_id="msg_001",
+    sender="user_001",
+)
 ```
 
 ### Timeouts
@@ -186,7 +206,12 @@ client = PythonDemo(
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).users.list()
+client.with_options(timeout=5.0).v1.memories.create(
+    content="Let's discuss the technical solution for the new feature today",
+    create_time="2025-01-15T10:00:00+00:00",
+    message_id="msg_001",
+    sender="user_001",
+)
 ```
 
 On timeout, an `APITimeoutError` is thrown.
@@ -227,11 +252,16 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from python_demo import PythonDemo
 
 client = PythonDemo()
-response = client.users.with_raw_response.list()
+response = client.v1.memories.with_raw_response.create(
+    content="Let's discuss the technical solution for the new feature today",
+    create_time="2025-01-15T10:00:00+00:00",
+    message_id="msg_001",
+    sender="user_001",
+)
 print(response.headers.get('X-My-Header'))
 
-user = response.parse()  # get the object that `users.list()` would have returned
-print(user.data)
+memory = response.parse()  # get the object that `v1.memories.create()` would have returned
+print(memory.message)
 ```
 
 These methods return an [`APIResponse`](https://github.com/jssfy/stainless-sdk-demo/tree/main/src/python_demo/_response.py) object.
@@ -245,7 +275,12 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.users.with_streaming_response.list() as response:
+with client.v1.memories.with_streaming_response.create(
+    content="Let's discuss the technical solution for the new feature today",
+    create_time="2025-01-15T10:00:00+00:00",
+    message_id="msg_001",
+    sender="user_001",
+) as response:
     print(response.headers.get("X-My-Header"))
 
     for line in response.iter_lines():
