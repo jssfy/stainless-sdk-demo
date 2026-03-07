@@ -20,7 +20,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestConversationMeta:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create(self, client: PythonDemo) -> None:
         conversation_meta = client.v1.memories.conversation_meta.create(
@@ -35,7 +35,7 @@ class TestConversationMeta:
         )
         assert_matches_type(ConversationMetaCreateResponse, conversation_meta, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_with_all_params(self, client: PythonDemo) -> None:
         conversation_meta = client.v1.memories.conversation_meta.create(
@@ -68,7 +68,7 @@ class TestConversationMeta:
         )
         assert_matches_type(ConversationMetaCreateResponse, conversation_meta, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_create(self, client: PythonDemo) -> None:
         response = client.v1.memories.conversation_meta.with_raw_response.create(
@@ -87,7 +87,7 @@ class TestConversationMeta:
         conversation_meta = response.parse()
         assert_matches_type(ConversationMetaCreateResponse, conversation_meta, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_create(self, client: PythonDemo) -> None:
         with client.v1.memories.conversation_meta.with_streaming_response.create(
@@ -108,13 +108,13 @@ class TestConversationMeta:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update(self, client: PythonDemo) -> None:
         conversation_meta = client.v1.memories.conversation_meta.update()
         assert_matches_type(ConversationMetaUpdateResponse, conversation_meta, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update_with_all_params(self, client: PythonDemo) -> None:
         conversation_meta = client.v1.memories.conversation_meta.update(
@@ -135,7 +135,7 @@ class TestConversationMeta:
         )
         assert_matches_type(ConversationMetaUpdateResponse, conversation_meta, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_update(self, client: PythonDemo) -> None:
         response = client.v1.memories.conversation_meta.with_raw_response.update()
@@ -145,7 +145,7 @@ class TestConversationMeta:
         conversation_meta = response.parse()
         assert_matches_type(ConversationMetaUpdateResponse, conversation_meta, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_update(self, client: PythonDemo) -> None:
         with client.v1.memories.conversation_meta.with_streaming_response.update() as response:
@@ -163,7 +163,7 @@ class TestAsyncConversationMeta:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create(self, async_client: AsyncPythonDemo) -> None:
         conversation_meta = await async_client.v1.memories.conversation_meta.create(
@@ -178,7 +178,7 @@ class TestAsyncConversationMeta:
         )
         assert_matches_type(ConversationMetaCreateResponse, conversation_meta, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncPythonDemo) -> None:
         conversation_meta = await async_client.v1.memories.conversation_meta.create(
@@ -211,7 +211,7 @@ class TestAsyncConversationMeta:
         )
         assert_matches_type(ConversationMetaCreateResponse, conversation_meta, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncPythonDemo) -> None:
         response = await async_client.v1.memories.conversation_meta.with_raw_response.create(
@@ -230,7 +230,7 @@ class TestAsyncConversationMeta:
         conversation_meta = await response.parse()
         assert_matches_type(ConversationMetaCreateResponse, conversation_meta, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncPythonDemo) -> None:
         async with async_client.v1.memories.conversation_meta.with_streaming_response.create(
@@ -251,13 +251,13 @@ class TestAsyncConversationMeta:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update(self, async_client: AsyncPythonDemo) -> None:
         conversation_meta = await async_client.v1.memories.conversation_meta.update()
         assert_matches_type(ConversationMetaUpdateResponse, conversation_meta, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update_with_all_params(self, async_client: AsyncPythonDemo) -> None:
         conversation_meta = await async_client.v1.memories.conversation_meta.update(
@@ -278,7 +278,7 @@ class TestAsyncConversationMeta:
         )
         assert_matches_type(ConversationMetaUpdateResponse, conversation_meta, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_update(self, async_client: AsyncPythonDemo) -> None:
         response = await async_client.v1.memories.conversation_meta.with_raw_response.update()
@@ -288,7 +288,7 @@ class TestAsyncConversationMeta:
         conversation_meta = await response.parse()
         assert_matches_type(ConversationMetaUpdateResponse, conversation_meta, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_update(self, async_client: AsyncPythonDemo) -> None:
         async with async_client.v1.memories.conversation_meta.with_streaming_response.update() as response:
