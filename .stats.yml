@@ -1,4 +1,4 @@
-configured_endpoints: 10
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/xjtu-jssfy%2Fpython-demo-9c64fb43b9895b131fe9a3badadc59168ff5d6f0065bd1fbcb5d5f1ed32b4458.yml
-openapi_spec_hash: 781268340ae8586daa4442b76d547446
-config_hash: 789b3e2727925ffbffd5f5e7af14d607
+configured_endpoints: 6
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/xjtu-jssfy%2Fpython-demo-c5fe6dab4dfd5e00b2d3aa1359cc5b92e52a6b101ee8901dc32357ff88ed83ae.yml
+openapi_spec_hash: 8894663d41b81b1aeed3123e1cb00493
+config_hash: 646ca8065a2998ec6b8af4d47acb719e
