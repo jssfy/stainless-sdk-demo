@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.5 (2026-04-08)
+
+Full Changelog: [v0.5.3...v0.5.5](https://github.com/jssfy/stainless-sdk-demo/compare/v0.5.3...v0.5.5)
+
+### Bug Fixes
+
+* bump version for pypi release ([35e3dc8](https://github.com/jssfy/stainless-sdk-demo/commit/35e3dc83226589285c601f474252ec2c601b3e3a))
+
 ## 0.5.3 (2026-04-06)
 
 Full Changelog: [v0.5.1...v0.5.3](https://github.com/jssfy/stainless-sdk-demo/compare/v0.5.1...v0.5.3)
