@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.6 (2026-04-11)
+
+Full Changelog: [v0.5.5...v0.5.6](https://github.com/jssfy/stainless-sdk-demo/compare/v0.5.5...v0.5.6)
+
+### Bug Fixes
+
+* **client:** preserve hardcoded query params when merging with user params ([180d37e](https://github.com/jssfy/stainless-sdk-demo/commit/180d37ef26dfaef5d7a985dc246ed0554256fb63))
+* ensure file data are only sent as 1 parameter ([15a5ff2](https://github.com/jssfy/stainless-sdk-demo/commit/15a5ff2fd7b08a103d7aaec13c7f38559be57167))
+
 ## 0.5.5 (2026-04-08)
 
 Full Changelog: [v0.5.3...v0.5.5](https://github.com/jssfy/stainless-sdk-demo/compare/v0.5.3...v0.5.5)
