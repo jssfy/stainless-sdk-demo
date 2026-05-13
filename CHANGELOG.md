@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.6.0 (2026-05-13)
+
+Full Changelog: [v0.5.5...v0.6.0](https://github.com/jssfy/stainless-sdk-demo/compare/v0.5.5...v0.6.0)
+
+### Features
+
+* **internal/types:** support eagerly validating pydantic iterators ([960e0b6](https://github.com/jssfy/stainless-sdk-demo/commit/960e0b6f36bf816e7794acd7cd9a34519563ed30))
+* support setting headers via env ([d2efb01](https://github.com/jssfy/stainless-sdk-demo/commit/d2efb01f8dabcf49adba01d0f1227b32fce665f7))
+
+
+### Bug Fixes
+
+* **client:** add missing f-string prefix in file type error message ([17b5c44](https://github.com/jssfy/stainless-sdk-demo/commit/17b5c44a7695fd3e6864d5670204643d8f63d4cf))
+* **client:** preserve hardcoded query params when merging with user params ([180d37e](https://github.com/jssfy/stainless-sdk-demo/commit/180d37ef26dfaef5d7a985dc246ed0554256fb63))
+* ensure file data are only sent as 1 parameter ([15a5ff2](https://github.com/jssfy/stainless-sdk-demo/commit/15a5ff2fd7b08a103d7aaec13c7f38559be57167))
+* use correct field name format for multipart file arrays ([9567b47](https://github.com/jssfy/stainless-sdk-demo/commit/9567b4761fae613e667a026731d6c8e89d86988e))
+
+
+### Performance Improvements
+
+* **client:** optimize file structure copying in multipart requests ([4de48e7](https://github.com/jssfy/stainless-sdk-demo/commit/4de48e741111ade62026dc3ec55b29c32199b50d))
+
+
+### Chores
+
+* **internal:** more robust bootstrap script ([5c032b2](https://github.com/jssfy/stainless-sdk-demo/commit/5c032b23e607c5d4efc18fb7d2bbfae2d934d90a))
+* **internal:** reformat pyproject.toml ([e5520ee](https://github.com/jssfy/stainless-sdk-demo/commit/e5520eeb1d1451545ca464a64d6be50062c98936))
+
 ## 0.5.5 (2026-04-08)
 
 Full Changelog: [v0.5.3...v0.5.5](https://github.com/jssfy/stainless-sdk-demo/compare/v0.5.3...v0.5.5)
